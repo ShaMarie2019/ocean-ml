@@ -1,2 +1,8 @@
+<<<<<<< HEAD
 this is a test
 this is a test x2
+=======
+this is a testi
+
+lsdkfskjdf
+>>>>>>> 8e074de4d04392b28b64b845871521ce5f950c1f
