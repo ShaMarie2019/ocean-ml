@@ -48,15 +48,15 @@ model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=
 history = model.fit(train_images, train_labels, epochs=10, validation_data=(test_images, test_labels))
 
 #this is greating anoither image to show it.
-plt.plot(history.history['accuracy'], label='accuracy')
-plt.plot(history.history['val_accuracy'], label = 'val_accuracy')
-plt.xlabel('Epoch')
-plt.ylabel('Accuracy')
-plt.ylim([0.5, 1])
-plt.legend(loc='lower right')
+#plt.plot(history.history['accuracy'], label='accuracy')
+#plt.plot(history.history['val_accuracy'], label = 'val_accuracy')
+# plt.xlabel('Epoch')
+# plt.ylabel('Accuracy')
+# plt.ylim([0.5, 1])
+# plt.legend(loc='lower right')cond
 
-test_loss, test_acc = model.evaluate(test_images,  test_labels, verbose=2)
-print(test_acc)
+# test_loss, test_acc = model.evaluate(test_images,  test_labels, verbose=2)
+# print(test_acc)
 
 
 

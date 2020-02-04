@@ -28,7 +28,7 @@ def show_batch(image_batch, label_batch):
 
 AUTOTUNE = tf.data.experimental.AUTOTUNE
 
-data_dir = '/Users/helenfellow/Documents/Education /cnn_data'
+data_dir = '/Users/brownscholar/Desktop/Intern_Git/pictures'
 data_dir = pathlib.Path(data_dir)
 
 image_count = len(list(data_dir.glob('*/*.jpg')))
@@ -38,13 +38,13 @@ print(image_count)
 CLASS_NAMES = np.array([item.name for item in data_dir.glob('*') if item.name != ".DS_Store"])
 print(CLASS_NAMES)
 
-seal_1 = list(data_dir.glob('seal_1/*'))
+porcupine = list(data_dir.glob('porcupine/*'))
 
 
 image_generator = tf.keras.preprocessing.image.ImageDataGenerator(rescale=1./255)
-BATCH_SIZE = 622
-IMG_HEIGHT = 1024
-IMG_WIDTH = 768
+BATCH_SIZE = 256
+IMG_HEIGHT = 4032
+IMG_WIDTH = 3024
 STEPS_PER_EPOCH = np.ceil(image_count/BATCH_SIZE)
 
 
@@ -59,14 +59,14 @@ image_batch, label_batch = next(train_data_gen)
 show_batch(image_batch, label_batch)
 
 model = models.Sequential()
-model.add(layers.Conv2D(32, (3, 3), activation='relu', input_shape=(1024, 768, 3)))
+model.add(layers.Conv2D(32, (10, 10), activation='relu', input_shape=(IMG_HEIGHT, IMG_WIDTH, 3)))
 model.add(layers.MaxPooling2D((2, 2)))
 model.add(layers.Conv2D(64, (3, 3), activation='relu'))
 model.add(layers.MaxPooling2D((2, 2)))
 model.add(layers.Conv2D(64, (3, 3), activation='relu'))
 model.add(layers.Flatten())
 model.add(layers.Dense(64, activation='relu'))
-model.add(layers.Dense(10, activation='softmax'))
+model.add(layers.Dense(2, activation='softmax'))
 
 print(model.summary())
 
