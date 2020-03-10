@@ -10,17 +10,18 @@ pressure = dataset ['depth']
 temperture = dataset['to']
 salinity = dataset['so'] 
 pressure_3d = np.zeros((31,80,27)) 
-density = sw.dens(salinity[0,:,:,:],temperture[0,:,:,:],pressure_3d)
+density = sw.dens(salinity[:,:,:,:],temperture[:,:,:,:],pressure_3d)
 density = density - 1000
 #density_onetime = density[100,:,:,:]
-density_onetime = density
+#density_onetime = density
 #print(density_onetime.shape)
+#print(density.shape) = (1356, 31, 80, 27)
 
-call= open('call.txt','w')
-
-for item in range(0,31):
-	for sat in range(0,80):
-		for love in range(0,27):
-			call.write(str(density_onetime[item,sat,love]) + "\n")
-call.close()
+for i in range(0,1356):
+	call = open('call_' + str(i) +  '.txt','w')
+	for item in range(0,31):
+		for sat in range(0,80):
+			for love in range(0,27):
+				call.write(str(density[i,item,sat,love]) + "\n")
+	call.close()
 
