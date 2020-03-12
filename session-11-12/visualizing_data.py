@@ -2,8 +2,16 @@ from netCDF4 import Dataset
 from datetime import date 
 from datetime import timedelta
 import numpy.ma as ma
+<<<<<<< HEAD
 import matplotlib.pyplot as plt
 import matplotlib.lines as mlines
+=======
+from datetime import date
+from datetime import timedelta
+import matplotlib.pyplot as plt
+import matplotlib.lines as mlines
+
+>>>>>>> 507f30019f87660c645769be8cfa1ccf9f91eb74
 
 # import the netcdf file using Dataset
 dataset = Dataset(r'/Users/brownscholar/Desktop/Intern_Git/ocean-ml/session-10-31/ssh_1572470095877.nc')
@@ -13,6 +21,7 @@ lat = dataset['latitude']
 
 # lon:
 lon = dataset['longitude']
+
 
 # adt:
 adt = dataset['adt']
