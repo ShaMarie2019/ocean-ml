@@ -1,0 +1,4 @@
+#!/bin/csh
+
+set dir = ./test/
+set fileinfo = {$dir}info_pr.dat
