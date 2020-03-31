@@ -1,13 +1,14 @@
 import sys
 
-example_date = print("the second argument in command line is "+sys.argv[1])
+example_date = sys.argv[1]
 
 vec_file = open('vectorq.exec','w')
 vec_file.write("#!/bin/csh\n\n")
+vec_file.write("set indir = /Users/brownscholar/Desktop/Intern_Git/files/marine_capernicus_dh")
 vec_file.write("set dir = ./test/\n")
 vec_file.write("set fileinfo = {$dir}info_pr.dat\n")
-vec_file.write("set filedh =  {$dir}dh_" + example_date + ".gr\n")
-vec_file.write("set filest =  {$dir}density" + example_date + ".gr\n")
+vectorq.write("set filedh =  {$indir}/file_dynamic_height/dh_"+example_date+".gr\n")
+vectorq.write("set filest =  {$indir}/file_density/density_"+example_date+".gr\n")
 vec_file.write("set filestm = {$dir}ss1_st0.dat\n")
 vec_file.write("set filequ =  {$dir}ss1a2qu.gr\n")
 vec_file.write("set fileqv =  {$dir}ss1a2qv.gr\n")
@@ -20,7 +21,6 @@ vec_file.write("'$filestm'	#>>>>>Escribe fichero de densidad promedio:\n")
 vec_file.write("'$filequ'	#>>>>>Escribe fichero Qu:\n")
 vec_file.write("'$fileqv'	#>>>>>Escribe fichero Qv:\n")
 vec_file.write("'$fileqdi'	#>>>>>Escribe fichero Qdi:\n")
-
 vec_file.close()
 
 omega_file = open('omegainv.exec','w')
@@ -39,6 +39,4 @@ omega_file.write("'$filestm'   	#>>>>>Escribe fichero de densidad promedio:\n")
 omega_file.write("'ominput.dat'  #>>>>>Escribe fichero parametros (ominput.dat):\n")
 omega_file.write("'$filew'	#>>>>>Escribe fichero Salida W:\n")
 omega_file.write("!\n")
-
 omega_file.close()
-
